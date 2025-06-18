@@ -1,0 +1,16 @@
+<div class="border-bottom row" style="margin-bottom:16px; padding-bottom:4px;">
+  <div class="col-10">
+    <h4 
+      style="color:rgb(120,120,120); margin-bottom:8px;">
+      {{project["project name"]}}
+    </h4>
+    {% if "project content" in project %}
+    <div>
+      <b>Project Content:</b> {{project["project content"]}}
+    </div>
+    {% endif %}
+  </div>
+  <div class="col-2">
+    <button type="button" class="btn btn-outline-primary">Look Inside</button>
+  </div>
+</div>
