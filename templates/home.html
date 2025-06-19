@@ -11,17 +11,24 @@
         height: 360px;
         width: 100%;
         object-fit:cover;
+        margin-bottom: 16px;
       }
     </style>
   </head>  
-  <body>  
+  <body>
+    {% include "nav.html" %}
+    <img class="img-fluid" id="banner" src="static/banner.jpg" alt="Banner" height="320">
     <div class="container">  
-      <h1 class="text-center mt-2 mb-4">Bayram Uysal's Projects</h1>  
-      <img class="img-fluid" id="banner" src="static/banner.jpg" alt="Banner" height="320">  
-      <h2 class="text-center mt-2 mb-4"">About Me</h2>  
+      <h1 class="text-center mt-2 mb-4">Bayram Uysal's Projects</h1>
+      <div class="row" style="margin-bottom:16px">
+        <div class="col-md-6">
       <p class="lead">  
         Lorem ipsum dolor sit amet, consectetur adipiscing elit...  
-      </p>  
+      </p>
+        <div class="d-none d-md-block col-md-6">
+        <img src="/static/people.jpg" style="height:320px; border-radius:4px;">
+        </div>
+      </div>
       <h2 class="text-center mt-2 mb-4"">Projects</h2>  
       <div>
         {% for project in projects %}
@@ -29,9 +36,10 @@
         {% endfor %}
       </div>  
       <div class="text-center">  
-        <button class="btn btn-primary btn-lg">Contact Me</button>  
+        <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/bayram-uysal-/">Contact Me</a>  
         <p class="mt-4">Copyright 2025, Bayram Uysal</p>  
       </div>  
-    </div>  
+    </div>
+    {% include "footer.html" %}
   </body>  
 </html>  
