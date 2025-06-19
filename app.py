@@ -3,20 +3,17 @@ from flask import Flask, render_template, jsonify
 app = Flask(__name__)
 
 PROJECTS = [{
-    "id": 1,
-    "project name": "Zombie-Survival (OOP)",
-    "project content": "Word-based simulator game based on Python-OOP"
+    "project name": "Zombie Survival",
+    "project content": "OOP-based zombie tracker with score system",
+    "link": "https://github.com/BayramUysalBey/zombie-survival-oop"
 }, {
-    "id":
-    2,
-    "project name":
-    "Greeter-App (Flask)",
-    "project content":
-    "Greetings website built using the Flask framework"
+    "project name": "Greeter App",
+    "project content": "Flask greeting app with visitor counter",
+    "link": "https://github.com/BayramUysalBey/flask-greeter-app"
 }, {
-    "id": 3,
-    "project name": "Personal Website (Flask)",
-    "project content": "In progress"
+    "project name": "Personal Website",
+    "project content": "Flask personal website project",
+    "link": "https://github.com/BayramUysalBey/trying-flask"
 }]
 
 
