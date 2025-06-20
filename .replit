@@ -1,9 +1,10 @@
 language = "python3"
 run = "python app.py"
-modules = ["python-3.11"]
+modules = ["web", "python-3.11"]
 
 [nix]
 packages = ["lsof"]
+channel = "stable-24_05"
 
 [[ports]]
 localPort = 2020
@@ -16,3 +17,6 @@ externalPort = 80
 [[ports]]
 localPort = 8080
 externalPort = 8080
+
+[deployment]
+run = ["sh", "-c", "python app.py"]

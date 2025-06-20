@@ -13,7 +13,7 @@ PROJECTS = [{
 }, {
     "project name": "Personal Website",
     "project content": "Flask personal website project",
-    "link": "https://github.com/BayramUysalBey/trying-flask"
+    "link": "https://github.com/BayramUysalBey/personal-website-framed-with-flask"
 }]
 
 
