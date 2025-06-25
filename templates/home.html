@@ -17,9 +17,9 @@
   </head>  
   <body>
     {% include "nav.html" %}
-    <img class="img-fluid" id="banner" src="static/banner.jpg" alt="Banner" height="320">
+    <img class="img-fluid" id="banner" src="static/banner.jpg" alt="Banner" height="380">
     <div class="container">  
-      <h1 class="text-center mt-2 mb-4">Bayram Uysal's Projects</h1>
+      <h1 class="text-center mt-2 mb-4">About Me</h1>
       <div class="row" style="margin-bottom:16px">
         <div class="col-md-6">
       <p class="lead">  
@@ -35,7 +35,7 @@ Business-Driven Development (MBA)
         <img src="/static/people.jpg" style="height:320px; border-radius:4px;">
         </div>
       </div>
-      <h2 class="text-center mt-2 mb-4"">Projects</h2>  
+      <h2 class="text-center mt-2 mb-4"">Portfolio</h2>  
       <div>
         {% for project in projects %}
           {% include "projectitem.html" %}

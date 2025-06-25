@@ -7,3 +7,19 @@ modules = ["web", "python-3.11"]
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 5002
+externalPort = 3000
+
+[[ports]]
+localPort = 5003
+externalPort = 3002
+
+[[ports]]
+localPort = 5008
+externalPort = 3001
+
+[[ports]]
+localPort = 6000
+externalPort = 6000

@@ -1,5 +1,6 @@
 import os
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, Column, Integer, String, Text
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 db_username = os.environ.get("DB_USERNAME")
 db_password = os.environ.get("DB_PASSWORD")
@@ -22,31 +23,46 @@ if not db_connection_string:
 
 ca_certificate_path = "cacert-2025-05-20.pem"
 
-engine = create_engine(db_connection_string,
-                       connect_args={"ssl": {
-                           "ca": ca_certificate_path
-                       }})
+engine = create_engine(
+    db_connection_string,
+    connect_args={"ssl": {
+        "ca": ca_certificate_path
+    }}
+)
 
+Base = declarative_base()
+
+class Project(Base):
+    __tablename__ = 'projects'
+
+    id = Column(Integer, primary_key=True)
+    project_name = Column(String(255)) 
+    content = Column(Text)            
+    languages = Column(String(255))   
+    link = Column(String(255))         
+
+    def __repr__(self):
+        return f"<Project(id={self.id}, name='{self.project_name}', languages='{self.languages}')>"
+
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def load_projects_from_db():
     try:
         with engine.connect() as conn:
-
             tables_result = conn.execute(text("SHOW TABLES"))
-
             visible_tables = [row[0] for row in tables_result.fetchall()]
-            print(
-                f"DEBUG: Tables visible to this connection: {visible_tables}")
+            print(f"DEBUG: Tables visible to this connection: {visible_tables}")
 
             result = conn.execute(text("SELECT * FROM projects"))
-            projects = [dict(row) for row in result.mappings()]
+            projects = [dict(row) for row in result.mappings()] 
+            
             print(f"DEBUG: Result from SELECT * FROM projects: {projects}")
             print(f"DEBUG: Found {len(projects)} projects.")
             return projects
     except Exception as e:
         print(f"Database Connection/Query Error: {e}")
         return []
-
 
 if __name__ == "__main__":
     print("Attempting to load projects for debugging...")
