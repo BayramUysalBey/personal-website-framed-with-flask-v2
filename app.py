@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, redirect
-from database import load_projects_from_db, SessionLocal, Project
+from database import load_projects_from_db, load_project_from_db_by_id, SessionLocal, Project
 
 app = Flask(__name__)
 
@@ -16,7 +16,19 @@ def list_projects():
     projects = load_projects_from_db()
     return jsonify(projects)
 
-@app.route('/project/<int:id>/delete', methods=['POST'])  
+
+@app.route("/project/<int:id>")
+def show_project(id):    
+    project = load_project_from_db_by_id(id)
+    
+    if project:
+        return render_template("projectpage.html", project=project)
+    else:
+        print(f"DEBUG: Project with ID {id} not found for API.")
+        return jsonify({"error": "Project not found"}), 404
+
+
+@app.route('/project/<int:id>/delete', methods=['POST'])
 def delete_project(id):
     db_session = SessionLocal()
     try:
