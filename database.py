@@ -32,8 +32,7 @@ if not db_connection_string:
 
 ca_certificate_path = "cacert-2025-05-20.pem"
 
-engine = create_engine(
-    os.environ.get("DB_CONNECTION_STRING"),
+engine = create_engine(db_connection_string,
     connect_args={"ssl": {
         "ca": ca_certificate_path
     }}
@@ -44,11 +43,11 @@ Base = declarative_base()
 class Project(Base):
     __tablename__ = 'projects'
     id = Column(Integer, primary_key=True)
-    title = Column(String(255), nullable=False)
-    description = Column(Text, nullable=False)
-    image_url = Column(String(255))
-    github_url = Column(String(255))      
-
+    project_name = Column(String(255), nullable=False)
+    content = Column(Text, nullable=False)
+    link = Column(String(255))
+    languages = Column(String(255))
+    
     def __repr__(self):
         return f"<Project(id={self.id}, name='{self.project_name}', languages='{self.languages}')>"
 
@@ -65,7 +64,6 @@ def load_projects_from_db():
     return projects
 
 def load_project_from_db_by_id(project_id):
-    """Loads a single project from the database by its ID."""
     db_session = SessionLocal()
     try:
         project = db_session.query(Project).get(project_id)
@@ -73,10 +71,10 @@ def load_project_from_db_by_id(project_id):
         if project:
             return {
                 'id': project.id,
-                'title': project.title,
-                'description': project.description,
-                'image_url': project.image_url,
-                'github_url': project.github_url
+                'project_name': project.project_name,
+                'content': project.content,
+                'link': project.link,
+                'languages': project.languages
             }
         return None 
     finally:
