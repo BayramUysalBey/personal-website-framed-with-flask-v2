@@ -27,7 +27,6 @@ def show_project(id):
         print(f"DEBUG: Project with ID {id} not found for API.")
         return jsonify({"error": "Project not found"}), 404
 
-
 @app.route('/project/<int:id>/delete', methods=['POST'])
 def delete_project(id):
     db_session = SessionLocal()

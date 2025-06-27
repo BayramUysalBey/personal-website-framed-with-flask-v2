@@ -16,10 +16,6 @@
     <a href="{{ project['link'] }}" type="button" class="btn btn-outline-primary float-right align-middle" target="_blank">Look Inside</a>
 
     <form action="/project/{{ project['id'] }}/delete" method="POST" style="display:inline;">
-      <button type="submit" class="btn btn-outline-danger btn-sm float-right align-middle" 
-              onclick="return confirm('Are you sure you want to delete ' + {{ project['project_name'] | tojson }} + '?');">
-        Delete
-      </button>
     </form>
     </div>
 </div>
