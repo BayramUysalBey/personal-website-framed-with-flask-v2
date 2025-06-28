@@ -6,10 +6,10 @@ This is the second version of my personal website, built with a robust backend t
 
 You can view the live demo here: **[https://personal-website-framed-with-flask-v2.onrender.com/](https://personal-website-framed-with-flask-v2.onrender.com/)**
 
-![App Screenshot](static/flask_web_1.png) ## 
+![App Screenshot](static/flask_web_1.png) 
 ![App Screenshot](static/flask_web_2.png)
 
-✨ Key Features & Enhancements
+## ✨ Key Features & Enhancements
 * **Dynamic Content:** Project data is now fetched from a **MySQL database**, allowing for easy updates without changing the code.
 * **CRUD Functionality:** The backend supports **Create, Read, Update, and Delete** operations for managing projects (a key skill for backend developers!).
 * **Contact Form:** A form where visitors can send me questions or messages (backend logic in development).
