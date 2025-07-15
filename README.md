@@ -39,4 +39,5 @@
    ```bash
    pip install -r requirements-neon.txt
 6. Configure Neon Database:
+- Create a Neon project and copy the connection string (e.g., postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb).
    
