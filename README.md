@@ -1,43 +1,49 @@
-# Bayram Uysal's Personal Website v2.0  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg )](LICENSE)  
+# Bayram Uysal's personal website v2.0  
+[!  [License: MIT] (https://img.shields.io/badge/licence-mit-green.svg)] (undergraduate)  
 
-> This is the second version of my personal website, rebuilt with PostgreSQL (via Neon) for dynamic project management.  
-> Live demo: [personal-website-framed-with-flask-v2.onrender.com](https://personal-website-framed-with-flask-v2.onrender.com/ )  
+> This is the second version of the personal website that has been rebuilt by postgresql (through neon) for dynamic project management.  
+> Live demo: [personal-website-filed-with-fask-v2.onrender.com] (https://personal-website-with-with-flask-v2.onrender.com/)  
 
-![App Screenshot](static/flask_web_1.png)  
-![App Screenshot](static/flask_web_2.png)  
+!  [Application screenshot] (static/flask_web_1.png)  
+!  [Application screenshot] (static/flask_web_2.png)  
 
-## ✨ Key Features & Enhancements  
-- **Dynamic Content**: Project data is fetched from **PostgreSQL (Neon)**, enabling real-time updates without code changes.  
-- **CRUD Functionality**: Backend supports **Create, Read, Update, and Delete** operations for projects (critical for junior backend roles).  
-- **Contact Form**: Collects user messages (backend logic in development).  
-- **Database Logging**: Tracks project interactions in PostgreSQL.  
-- **Deployed to Render**: Cloud-hosted for 24/7 availability.  
+## ✨ Basic features and improvements  
+- ** Dynamic Content **: Project data ** Postgresql (Neon) ** is taken from ** and activates real -time updates without code changes.  
+- ** CUD Functionality **: Rear end support ** Create, read, update and delete operations (critical for Junior Back end roles).  
+- ** Contact Form **: Collects user messages (rear end logic on the development back).  
+- ** Database Diary **: Monitoring project interactions in Postgresql.  
+- ** distributed for render **: 7/24 Cloud for availability.  
 
-## 🛠 Built With  
-- **Python/Flask**: Core web framework.  
-- **PostgreSQL (Neon)**: Relational database for scalable backend logic.  
-- **SQLAlchemy**: ORM for database interactions.  
-- **HTML/CSS/Bootstrap**: Frontend design and styling.  
-- **Git/GitHub**: Version control and collaboration.  
-- **Render**: Deployment and hosting platform.  
+## 🛠  
+- ** Python/Flask **: Core Web Framework.  
+- ** Postgresql (Neon) **: Relational database for scalable rear end logic.  
+- ** sqlalchemy **: ORM for database interactions.  
+- ** HTML/CSS/Bootstrap **: front end design and style.  
+- ** Go/github **: version control and cooperation.  
+- ** Render **: Distribution and Host Platform.  
 
-## 🚀 Run Locally  
-1. Ensure Python is installed.  
-2. Clone the repository:  
-   ```bash  
-   git clone https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git
-3. Navigate to the project directory:
-   ```bash
-   cd personal-website-framed-with-flask-v2
+## 🚀 Run locally  
+1. Make sure that Python was established.  
+2. Clon the tank:  
+   `` Bash  
+   Go clone https://github.com/bayramusalbey/personal-website-with-flask-v2.git
+3. Go to the project directory:
+   `` Bash
+   CD Personal-Website-Freed-With-Fask-V2
 4. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv  
-   # Windows: venv\Scripts\activate  
-   # macOS/Linux: source venv/bin/activate
-5. Install PostgreSQL dependencies:
-   ```bash
-   pip install -r requirements-neon.txt
-6. Configure Neon Database:
-- Create a Neon project and copy the connection string (e.g., postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb).
+   `` Bash
+   Python -m Venv Venv  
+   # Windows: Venv \ Scripts \ Activate  
+   # MacOS/Linux: Source Venv/Bin/Activity
+5. Upload postgresql addictions:
+   `` Bash
+   PIP Installation -r requirements -Non.txt
+6. Configure the Neon database:
+-Create a neon project and copy the connection string (eg [postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb]).
+-Add to [.env]:
+`` env
+DATABASE_URL="postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb?sslmode=require"
+7. Run the app:
+   `` Bash
+   flask run
    
