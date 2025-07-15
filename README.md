@@ -26,4 +26,7 @@
 1. Ensure Python is installed.  
 2. Clone the repository:  
    ```bash  
-   git clone https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git   
+   git clone https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git
+
+3. Navigate to the project directory:
+cd personal-website-framed-with-flask-v2
