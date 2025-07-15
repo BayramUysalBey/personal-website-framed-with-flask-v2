@@ -73,7 +73,21 @@ Flask
 Flask-SQLAlchemy  
 psycopg2-binary  # For local development  
 gunicorn
-```  
+```
+## 🌐 Neon Deployment Notes  
+1. SSL Mode : Neon enforces sslmode=require. Ensure your connect_args include:
+   ```python
+   connect_args={"sslmode": "require"}
+   ```
+2. Schema Differences:
+   - MySQL’s auto_increment → PostgreSQL’s SERIAL (handled via db.Column(db.Integer, primary_key=True) in SQLAlchemy).
+## 🧠 Learning Outcomes  
+- Successfully migrated from MySQL to Neon PostgreSQL.
+- Mastered SQLAlchemy quirks with PostgreSQL (SERIAL vs. auto_increment).
+- Configured Neon’s SSL requirements for secure connections.  
+## Critical Warnings   
+- **Neon Free Tier**: Connections drop after inactivity. Use keepalive or a background worker to maintain uptime.
+- **PostgreSQL Syntax**: Ensure all queries use PostgreSQL dialect (e.g., ILIKE instead of LIKE).  
 
 
    
