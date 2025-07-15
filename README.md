@@ -39,8 +39,8 @@
    ```bash
    PIP Installation -r requirements -Non.txt
 6. Configure the Neon database:  
--Create a neon project and copy the connection string (eg [postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb]).  
--Add to .env:  
+- Create a neon project and copy the connection string (eg [postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb]).  
+- Add to .env:  
 ```env
 DATABASE_URL="postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb?sslmode=require"
 
