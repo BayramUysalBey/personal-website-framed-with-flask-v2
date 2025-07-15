@@ -85,7 +85,7 @@ gunicorn
 - Successfully migrated from MySQL to Neon PostgreSQL.
 - Mastered SQLAlchemy quirks with PostgreSQL (SERIAL vs. auto_increment).
 - Configured Neon’s SSL requirements for secure connections.  
-## Critical Warnings   
+## 🛑 Critical Warnings  
 - **Neon Free Tier**: Connections drop after inactivity. Use keepalive or a background worker to maintain uptime.
 - **PostgreSQL Syntax**: Ensure all queries use PostgreSQL dialect (e.g., ILIKE instead of LIKE).  
 
