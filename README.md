@@ -33,7 +33,7 @@
 4. Create and activate a virtual environment:
    ```bash
    Python -m Venv Venv  
-   # Windows: Venv \ Scripts \ Activate  
+   # Windows: Venv\Scripts\Activate  
    # MacOS/Linux: Source Venv/Bin/Activity
 5. Upload postgresql addictions:
    ```bash
