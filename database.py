@@ -1,58 +1,38 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String, Text, BigInteger
 
 import os
-import pymysql
 
-db_username = os.environ.get("DB_USERNAME")
-db_password = os.environ.get("DB_PASSWORD")
-db_host = os.environ.get("DB_HOST")
-db_name = os.environ.get("DB_NAME")
+database_url = os.environ.get("DATABASE_URL")
 
-print(f"DEBUG: DB_USERNAME from env: '{db_username}'")
-print(f"DEBUG: DB_PASSWORD from env: '{db_password}'")
-print(f"DEBUG: DB_HOST from env: '{db_host}'")
-print(f"DEBUG: DB_NAME from env: '{db_name}'")
+print(f"DEBUG: DATABASE_URL from env: '{database_url}'")
 
-if not all([db_username, db_password, db_host, db_name]):
+if not database_url:
     raise ValueError(
-        "One or more database environment variables (DB_USERNAME, DB_PASSWORD, DB_HOST, DB_NAME) are not set. Please check Replit Secrets."
+        "DATABASE_URL environment variable is not set. Please set it for your database connection."
     )
 
-db_connection_string = f"mysql+pymysql://{db_username}:{db_password}@{db_host}/{db_name}?charset=utf8mb4"
-
-print(f"DEBUG: Attempting to parse URL: '{db_connection_string}'")
-
-if not db_connection_string:
-    raise ValueError(
-        "DB_CONNECTION_STRING environment variable is not set. Please check Replit Secrets."
-    )
-
-ca_certificate_path = "cacert-2025-05-20.pem"
-
-engine = create_engine(db_connection_string,
-    connect_args={"ssl": {
-        "ca": ca_certificate_path
-    }}
-)
+engine = create_engine(database_url)
 
 Base = declarative_base()
 
+
 class Project(Base):
     __tablename__ = 'projects'
-    id = Column(Integer, primary_key=True)
-    project_name = Column(String(255), nullable=False)
+    id = Column(BigInteger, primary_key=True, autoincrement=True)
+    project_name = Column(String(250), nullable=False)
     content = Column(Text, nullable=False)
-    link = Column(String(255))
-    languages = Column(String(255))
-    
+    link = Column(String(250))
+    languages = Column(String(200))
+
     def __repr__(self):
         return f"<Project(id={self.id}, name='{self.project_name}', languages='{self.languages}')>"
 
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
 
 def load_projects_from_db():
     projects = []
@@ -63,11 +43,12 @@ def load_projects_from_db():
             projects.append(dict(zip(column_names, row)))
     return projects
 
+
 def load_project_from_db_by_id(project_id):
     db_session = SessionLocal()
     try:
         project = db_session.query(Project).get(project_id)
-        
+
         if project:
             return {
                 'id': project.id,
@@ -76,11 +57,11 @@ def load_project_from_db_by_id(project_id):
                 'link': project.link,
                 'languages': project.languages
             }
-        return None 
+        return None
     finally:
         db_session.close()
 
-    
+
 if __name__ == "__main__":
     print("Attempting to load projects for debugging...")
     my_projects = load_projects_from_db()
