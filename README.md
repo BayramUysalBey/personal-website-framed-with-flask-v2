@@ -27,6 +27,16 @@
 2. Clone the repository:  
    ```bash  
    git clone https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git
-
 3. Navigate to the project directory:
-cd personal-website-framed-with-flask-v2
+   ```bash
+   cd personal-website-framed-with-flask-v2
+4. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv  
+   # Windows: venv\Scripts\activate  
+   # macOS/Linux: source venv/bin/activate
+5. Install PostgreSQL dependencies:
+   ```bash
+   pip install -r requirements-neon.txt
+6. Configure Neon Database:
+   
