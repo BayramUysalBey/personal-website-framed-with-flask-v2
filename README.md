@@ -12,7 +12,7 @@
 - **CRUD Functionality**: Backend supports **Create, Read, Update, and Delete** operations for projects (critical for junior backend roles).  
 - **Contact Form**: Collects user messages (backend logic in development).  
 - **Database Logging**: Tracks project interactions in PostgreSQL.  
-- **Deployed to Render**: Cloud-hosted for 24/7 availability.  
+- **Deployed to Render**: Cloud-hosted for 24/7 availability.   
 
 ## 🛠 Built With  
 - **Python/Flask**: Core web framework.  
@@ -79,7 +79,7 @@ gunicorn
    ```python
    connect_args={"sslmode": "require"}  
 2. Schema Differences:
-   - MySQL’s auto_increment → PostgreSQL’s SERIAL (handled via db.Column(db.Integer, primary_key=True) in SQLAlchemy).  
+- MySQL’s auto_increment → PostgreSQL’s SERIAL (handled via db.Column(db.Integer, primary_key=True) in SQLAlchemy).  
 ## 🧠 Learning Outcomes  
 - Successfully migrated from MySQL to Neon PostgreSQL.
 - Mastered SQLAlchemy quirks with PostgreSQL (SERIAL vs. auto_increment).
