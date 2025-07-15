@@ -79,8 +79,8 @@ gunicorn
    ```python
    connect_args={"sslmode": "require"}
    ```
-2. Schema Differences:  
-   - MySQL’s auto_increment → PostgreSQL’s SERIAL (handled via db.Column(db.Integer, primary_key=True) in SQLAlchemy).
+2. Schema Differences:
+   - MySQL’s auto_increment → PostgreSQL’s SERIAL (handled via db.Column(db.Integer, primary_key=True) in SQLAlchemy).  
 ## 🧠 Learning Outcomes  
 - Successfully migrated from MySQL to Neon PostgreSQL.
 - Mastered SQLAlchemy quirks with PostgreSQL (SERIAL vs. auto_increment).
