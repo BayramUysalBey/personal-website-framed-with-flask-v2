@@ -77,8 +77,7 @@ gunicorn
 ## 🌐 Neon Deployment Notes  
 1. SSL Mode : Neon enforces sslmode=require. Ensure your connect_args include:
    ```python
-   connect_args={"sslmode": "require"}
-   ```
+   connect_args={"sslmode": "require"}  
 2. Schema Differences:
    - MySQL’s auto_increment → PostgreSQL’s SERIAL (handled via db.Column(db.Integer, primary_key=True) in SQLAlchemy).  
 ## 🧠 Learning Outcomes  
