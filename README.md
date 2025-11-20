@@ -50,7 +50,7 @@ DATABASE_URL="**********"
 
 SESSION_SECRET=**********
 
-Build and Launch (The Single Command):
+## Build and Launch (The Single Command):
 
 docker compose up --build
 
