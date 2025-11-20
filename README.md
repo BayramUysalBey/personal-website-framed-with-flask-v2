@@ -47,8 +47,9 @@ Add your connection URL and session secret to it (as demonstrated below).
 
 # This shows the structure needed for the application
 
-DATABASE_URL="postgresql://neondb_owner:npg_jX5URDsCgc2N@ep-cold-unit-a2aogdor-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
-SESSION_SECRET=rce1/JGo8oKMyT35iNbwoworRjXeC9lcvtDpQqH84/1gMUP1N+TrSXy+xaiLzuYdZC8QS/PLd6M1VhTlPcRYGQ==
+DATABASE_URL="**********"
+
+SESSION_SECRET=**********
 
 Build and Launch (The Single Command):
 
