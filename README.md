@@ -1,92 +1,67 @@
-# Bayram Uysal's Personal Website v2.0  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg )](LICENSE)  
+# Bayram Uysal's Personal Website v2.0
 
-> This is the second version of my personal website, rebuilt with PostgreSQL (via Neon) for dynamic project management.  
-> Live demo: [personal-website-framed-with-flask-v2.onrender.com](https://personal-website-framed-with-flask-v2.onrender.com/ )  
+This is the second version of my personal website, rebuilt with modern, containerized architecture and leveraging the Neon serverless PostgreSQL database for dynamic project management.
 
-![App Screenshot](static/flask_web_1.png)  
-![App Screenshot](static/flask_web_2.png)  
+🌐 Live Demo: personal-website-framed-with-flask-v2.onrender.com
 
-## ✨ Key Features & Enhancements  
-- **Dynamic Content**: Project data is fetched from **PostgreSQL (Neon)**, enabling real-time updates without code changes.
-- **CRUD Functionality**: Backend supports **Create, Read, Update, and Delete** operations for projects (critical for junior backend roles).  
-- **Contact Form**: Collects user messages (backend logic in development).  
-- **Database Logging**: Tracks project interactions in PostgreSQL.  
-- **Deployed to Render**: Cloud-hosted for 24/7 availability.   
+✨ Key Features & Technical Outcomes
 
-## 🛠 Built With  
-- **Python/Flask**: Core web framework.  
-- **PostgreSQL (Neon)**: Relational database for scalable backend logic.  
-- **SQLAlchemy**: ORM for database interactions.  
-- **HTML/CSS/Bootstrap**: Frontend design and styling.  
-- **Git/GitHub**: Version control and collaboration.  
-- **Render**: Deployment and hosting platform.  
+This project demonstrates proficiency in building and deploying a multi-component backend stack:
 
-## 🚀 Run Locally  
-1. Ensure Python is installed.  
-2. Clone the repository:  
-   ```bash  
-   git clone https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git   
-3. Go to the project directory:
-   ```bash
-   CD Personal-Website-Freed-With-Fask-V2
-4. Create and activate a virtual environment:
-   ```bash
-   Python -m Venv Venv  
-   # Windows: Venv\Scripts\Activate  
-   # MacOS/Linux: Source Venv/Bin/Activity
-5. Upload postgresql addictions:
-   ```bash
-   PIP Installation -r requirements -Non.txt
-6. Configure the Neon database:  
-- Create a neon project and copy the connection string (eg. postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb).  
-- Add to .env:  
-```env
-DATABASE_URL="postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb?sslmode=require"
-```
-7. Run the app:
-   ```bash
-   flask run
-## 📋 Neon-Specific Fixes  
-A. Database Schema Adjustments  
-PostgreSQL requires explicit type casting. Update your models to match Neon’s schema:  
-```python
-# database.py  
-class Project(Base):
-    __tablename__ = 'projects'
-    id = Column(BigInteger, primary_key=True, autoincrement=True)
-    project_name = Column(String(250), nullable=False)
-    content = Column(Text, nullable=False)
-    link = Column(String(250))
-    languages = Column(String(200))
-```
-B. Neon Connection String  
-Neon’s format:  
-```python
-db_connection_string = "postgres://user:password@ep-cool-dark-842271.us-east-2.aws.neon.tech/neondb?sslmode=require"  
-engine = create_engine(db_connection_string, connect_args={"sslmode": "require"})
-```
-C. Requirements Update  
-Replace mysqlclient with PostgreSQL drivers in requirements-neon.txt:  
-```txt
-Flask  
-Flask-SQLAlchemy  
-psycopg2-binary  # For local development  
-gunicorn
-```
-## 🌐 Neon Deployment Notes  
-1. SSL Mode : Neon enforces sslmode=require. Ensure your connect_args include:
-   ```python
-   connect_args={"sslmode": "require"}  
-2. Schema Differences:
-- MySQL’s auto_increment → PostgreSQL’s SERIAL (handled via db.Column(db.Integer, primary_key=True) in SQLAlchemy).  
-## 🧠 Learning Outcomes  
-- Successfully migrated from MySQL to Neon PostgreSQL.
-- Mastered SQLAlchemy quirks with PostgreSQL (SERIAL vs. auto_increment).
-- Configured Neon’s SSL requirements for secure connections.  
-## 🛑 Critical Warnings  
-- **Neon Free Tier**: Connections drop after inactivity. Use keepalive or a background worker to maintain uptime.
-- **PostgreSQL Syntax**: Ensure all queries use PostgreSQL dialect (e.g., ILIKE instead of LIKE).  
+Full Containerization (Docker Compose): The entire application (Flask/Gunicorn) and its environment are containerized, ensuring a reliable, cross-platform build via a single command.
 
+Externalized Secrets: All credentials (DATABASE_URL, SESSION_SECRET) are securely stored in a local .env file and never committed to the repository (a critical security practice).
 
-   
+Robust Deployment Pipeline: The boot.sh entrypoint includes custom Python logic for connection retries and synchronization, guaranteeing the web application starts only after the external Neon database is ready.
+
+Neon PostgreSQL Integration: Project data is sourced from Neon, confirming experience with managed, serverless PostgreSQL and its required SSL connection settings.
+
+Professional Server: Uses Gunicorn for production-grade web serving, moving beyond Flask's internal development server.
+
+🛠 Project Stack
+
+Backend Core: Python (3.12-slim), Flask
+
+Production Server: Gunicorn
+
+Database: PostgreSQL (via Neon Serverless)
+
+Deployment: Docker, Docker Compose
+
+🚀 One-Step Local Setup (The Professional Method)
+
+To run this application locally, you only need Docker Desktop installed and running.
+
+Clone the Repository:
+
+git clone [https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git](https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git)
+cd personal-website-framed-with-flask-v2
+
+Configure Secrets:
+
+Create a file named .env in the project root.
+
+Add your connection URL and session secret to it (as demonstrated below).
+
+## .env (NEVER commit this file)
+
+# This shows the structure needed for the application
+
+DATABASE_URL="postgresql://neondb_owner:npg_jX5URDsCgc2N@ep-cold-unit-a2aogdor-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+SESSION_SECRET=rce1/JGo8oKMyT35iNbwoworRjXeC9lcvtDpQqH84/1gMUP1N+TrSXy+xaiLzuYdZC8QS/PLd6M1VhTlPcRYGQ==
+
+Build and Launch (The Single Command):
+
+docker compose up --build
+
+The application will be available at <http://localhost:5000/>.
+
+🛑 Critical Learning Outcomes (Debugging Focus)
+
+This project served as a testbed for solving common system integration failures:
+
+Dependency Resolution: Solved the pg_config not found error by switching from psycopg2 to the pre-compiled psycopg2-binary in requirements.txt.
+
+Startup Synchronization: Implemented robust wait-for-database logic in boot.sh to eliminate race conditions between the application and the database service.
+
+Security Fixes: Resolved live security incidents by removing hardcoded passwords from app.py and implementing the .gitignore/.env separation.

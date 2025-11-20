@@ -1,40 +1,42 @@
-<!DOCTYPE html>  
-<html>  
-  <head>  
-    <title>Bayram Uysal's Projects</title>
-    {% include "bootstrap.html" %} 
-  </head>  
-  <body>
-    {% include "nav.html" %}
-    {% include "banner.html" %}
-    <div class="container">  
-      <h1 class="text-center mt-2 mb-4">About Me</h1>
-      <div class="row" style="margin-bottom:16px">
-        <div class="col-md-6">
-      <p class="lead">  
-        I'm currently studying; Python (Backend Development)
-Flask & FastAPI
-REST API Design & Implementation
-Docker & Containerization
-SQL Databases
-Software Architecture
-Business-Driven Development (MBA)  
-      </p>
-        <div class="d-none d-md-block col-md-6">
-        <img src="/static/people.jpg" style="height:320px; border-radius:4px;">
-        </div>
-      </div>
-      <h2 class="text-center mt-2 mb-4"">Portfolio</h2>  
-      <div>
-        {% for project in projects %}
-          {% include "projectitem.html" %}
-        {% endfor %}
-      </div>  
-      <div class="text-center">  
-        <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/bayram-uysal-/" target="_blank">Contact Me</a>  
-        <p class="mt-4">Copyright 2025, Bayram Uysal</p>  
-      </div>  
-    </div>
-    {% include "footer.html" %}
-  </body>  
-</html>  
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Bayram Uysal's Projects</title>
+	{% include "bootstrap.html" %}
+</head>
+
+<body>
+	{% include "nav.html" %}
+	{% include "banner.html" %}
+	<div class="container">
+		<h1 class="text-center mt-2 mb-4">About Me</h1>
+		<div class="row" style="margin-bottom:16px">
+			<div class="col-md-6">
+				<p class="lead">
+					I'm currently studying; Python (Backend Development)
+					Flask
+					REST API Design & Implementation
+					Docker & Containerization
+					SQL Databases
+					Software Architecture
+					Business-Driven Development (MBA)
+				</p>
+				<div class="d-none d-md-block col-md-6">
+					<img src="/static/people.jpg" style="height:320px; border-radius:4px;">
+				</div>
+			</div>
+			<h2 class="text-center mt-2 mb-4">Portfolio</h2>
+			<div>
+				{% for project in projects %}
+				{% include "projectitem.html" %} {% endfor %} </div>
+			<div class="text-center">
+				<a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/bayram-uysal-/"
+					target="_blank">Contact Me</a>
+				<p class="mt-4">Copyright 2025, Bayram Uysal</p>
+			</div>
+		</div>
+		{% include "footer.html" %}
+</body>
+
+</html>

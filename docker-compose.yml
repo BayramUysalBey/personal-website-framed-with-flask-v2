@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # -----------------------------------------------------
+  # 1. THE FLASK APPLICATION (WEB SERVICE)
+  # -----------------------------------------------------
+  web:
+    # Tells Docker to build the image using the instructions in the Dockerfile
+    build: . 
+    
+    # Use the script that starts the app (now simplified)
+    command: ./boot.sh 
+    
+    # Maps the host port 5000 to the container port 5000
+    ports:
+      - "5000:5000"
+      
+    # Load the NEON DATABASE_URL from the .env file
+    env_file:
+      - .env
+      
+    # Mounts your local project code into the container for easy development
+    volumes:
+      - .:/app
