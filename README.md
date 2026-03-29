@@ -2,9 +2,8 @@
 
 This is the second version of my personal website, rebuilt with modern, containerized architecture and leveraging the Neon serverless PostgreSQL database for dynamic project management.
 
-🌐 Live Demo: personal-website-framed-with-flask-v2.onrender.com
-
-✨ Key Features & Technical Outcomes
+### 🌐 Live Demo: [personal-website-framed-with-flask-v2.onrender.com](https://personal-website-framed-with-flask-v2.onrender.com/ )
+### ✨ Key Features & Technical Outcomes
 
 This project demonstrates proficiency in building and deploying a multi-component backend stack:
 
@@ -18,7 +17,7 @@ Neon PostgreSQL Integration: Project data is sourced from Neon, confirming exper
 
 Professional Server: Uses Gunicorn for production-grade web serving, moving beyond Flask's internal development server.
 
-🛠 Project Stack
+### 🛠 Project Stack
 
 Backend Core: Python (3.12-slim), Flask
 
@@ -30,16 +29,16 @@ Database: PostgreSQL (via Neon Serverless)
 
 Deployment: Docker, Docker Compose
 
-🚀 One-Step Local Setup (The Professional Method)
+### 🚀 One-Step Local Setup (The Professional Method)
 
 To run this application locally, you only need Docker Desktop installed and running.
 
-Clone the Repository:
+### Clone the Repository:
 
 git clone [https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git](https://github.com/BayramUysalBey/personal-website-framed-with-flask-v2.git)
 cd personal-website-framed-with-flask-v2
 
-Configure Secrets:
+### Configure Secrets:
 
 Create a file named .env in the project root.
 
@@ -47,19 +46,19 @@ Add your connection URL and session secret to it (as demonstrated below).
 
 ## .env (NEVER commit this file)
 
-# This shows the structure needed for the application
+### This shows the structure needed for the application
 
 DATABASE_URL="**********"
 
 SESSION_SECRET=**********
 
-Build and Launch (The Single Command):
+## Build and Launch (The Single Command):
 
 docker compose up --build
 
-The application will be available at <http://localhost:5000/>.
+#### The application will be available at <http://localhost:5000/>.
 
-🛑 Critical Learning Outcomes (Debugging Focus)
+### 🛑 Critical Learning Outcomes (Debugging Focus)
 
 This project served as a testbed for solving common system integration failures:
 
