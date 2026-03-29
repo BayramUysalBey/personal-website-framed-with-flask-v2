@@ -22,6 +22,8 @@ Professional Server: Uses Gunicorn for production-grade web serving, moving beyo
 
 Backend Core: Python (3.12-slim), Flask
 
+Frontend Design: Custom dark theme with an interactive AI Neural Field background (using `new.css` and `new.js`)
+
 Production Server: Gunicorn
 
 Database: PostgreSQL (via Neon Serverless)

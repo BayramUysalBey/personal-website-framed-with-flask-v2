@@ -1,0 +1,65 @@
+:root {
+  --bg: #05070a;
+  --txt: #e9eef6;
+  --muted: #a2adbd;
+  --line: rgba(255,255,255,.10);
+  --blue: #2d6ae3;
+  --violet: #7c3aed;
+  --white: #000000;
+  --maxw: 940px;
+}
+
+body {
+  background: var(--bg) !important;
+  color: var(--txt) !important;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+}
+
+/* Remove Bootstrap's default link coloring to fit the dark theme nicely */
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Background Scene */
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none; /* allows clicking through the canvas to the background if needed */
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  color: var(--txt);
+}
+
+/* Adjust Bootstrap components for the new dark theme */
+.card, .list-group-item {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: var(--txt) !important;
+  border-color: var(--line) !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--line) !important;
+}
+
+p.lead {
+  color: var(--muted);
+}

@@ -1,9 +1,10 @@
-from flask import Flask, render_template, jsonify, redirect
-from database import load_projects_from_db, load_project_from_db_by_id, SessionLocal, Project
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
+
+from flask import Flask, render_template, jsonify, redirect
+from database import load_projects_from_db, load_project_from_db_by_id, SessionLocal, Project
 
 app = Flask(__name__)
 
