@@ -1,21 +1,26 @@
-<div class="border-bottom row" style="margin-bottom:16px; padding-bottom:4px;">
-  <div class="col-10">  <h4 style="color:var(--muted); margin-bottom:8px;">
-      {{ project["project_name"] }}
-    </h4>
-    {% if "content" in project %}
-    <div>
-      <b>Project Content:</b> {{ project["content"] }}
-    </div>
-    {% endif %}
-    {% if "languages" in project %}
-    <div>
-      <b>Languages:</b> {{ project["languages"] }}
-    </div>
-    {% endif %}
-  </div>  <div class="col-2" style="padding-right:16px;">
-    <a href="{{ project['link'] }}" type="button" class="btn btn-outline-primary float-right align-middle" target="_blank">Look Inside</a>
+<div class="border-bottom row" style="margin-bottom:16px; padding-bottom:12px;">
 
-    <form action="/project/{{ project['id'] }}/delete" method="POST" style="display:inline;">
-    </form>
+    <div class="col-md-9">
+        <h4 style="color:var(--muted); margin-bottom:8px;">
+            {{ project["project_name"] }}
+        </h4>
+
+        {% if project.get("content") %}
+        <div><b>Project Content:</b> {{ project["content"] }}</div>
+        {% endif %}
+
+        {% if project.get("languages") %}
+        <div><b>Languages:</b> {{ project["languages"] }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-3 d-flex flex-column align-items-md-end gap-2 mt-2 mt-md-0">
+
+        {% if project.get("live_link") %}
+        <a href="{{ project['live_link'] }}" class="btn btn-success" target="_blank" rel="noopener">Live Demo</a>
+        {% endif %}
+
+        <a href="{{ project['link'] }}" class="btn btn-outline-primary" target="_blank" rel="noopener">Look Inside</a>
+
     </div>
 </div>

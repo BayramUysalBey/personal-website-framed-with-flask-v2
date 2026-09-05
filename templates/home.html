@@ -2,48 +2,52 @@
 <html lang="en" data-bs-theme="dark">
 
 <head>
-	<title>Bayram Uysal's Projects</title>
-	{% include "bootstrap.html" %}
+    <title>Bayram Uysal's Projects</title>
+    {% include "bootstrap.html" %}
 </head>
 
 <body>
-	<div class="scene" aria-hidden="true"><canvas id="fx"></canvas></div>
-	{% include "nav.html" %}
-	{% include "banner.html" %}
-	<div class="container">
-		<h1 class="text-center mt-2 mb-4">About Me</h1>
-		<div class="row" style="margin-bottom:16px">
-			<div class="col-md-6">
-				<div class="lead" style="font-size: 1.1rem;">
-					<p>
-						Hello! I'm an MBA-educated Backend Developer focused on designing robust, containerized architectures and scalable software solutions. I merge business-driven perspectives with technical implementations to deliver real-world value.
-					</p>
-					<p class="mb-2">My current technical expertise includes:</p>
-					<ul>
-						<li><strong>Backend Frameworks:</strong> Python, FastAPI, and Flask</li>
-						<li><strong>System Design:</strong> REST API Architecture & Modular App Routing</li>
-						<li><strong>Infrastructure:</strong> Docker & Containerization</li>
-						<li><strong>Data Engineering:</strong> SQL Databases (PostgreSQL, Neon) and Alembic</li>
-					</ul>
-					<p class="mt-3">
-						I'm transitioning into software engineering following a decade of technical leadership in high-stakes engineering environments (including the Istanbul Airport megaproject). I now apply that same standard of operational excellence and reliability to building backend systems.
-					</p>
-				</div>
-				<div class="d-none d-md-block col-md-6">
-					<img src="/static/people.jpg" style="height:320px; border-radius:4px;">
-				</div>
-			</div>
-			<h2 class="text-center mt-2 mb-4">Portfolio</h2>
-			<div>
-				{% for project in projects %}
-				{% include "projectitem.html" %} {% endfor %} </div>
-			<div class="text-center">
-				<a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/bayram-uysal-/"
-					target="_blank">Contact Me</a>
-				<p class="mt-4">Copyright 2025, Bayram Uysal</p>
-			</div>
-		</div>
-		{% include "footer.html" %}
+    <div class="scene" aria-hidden="true"><canvas id="fx"></canvas></div>
+    {% include "nav.html" %}
+    {% include "banner.html" %}
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">About Me</h1>
+        <div class="row" style="margin-bottom:16px">
+            <div class="col-md-6">
+                <div class="lead" style="font-size: 1.1rem;">
+                    <p>
+                        Hello! I'm an MBA-educated Backend Developer focused on designing robust, containerized
+                        architectures and scalable software solutions. I merge business-driven perspectives with
+                        technical implementations to deliver real-world value.
+                    </p>
+                    <p class="mb-2">My current technical expertise includes:</p>
+                    <ul>
+                        <li><strong>Backend Frameworks:</strong> Python, FastAPI, and Flask</li>
+                        <li><strong>System Design:</strong> REST API Architecture & Modular App Routing</li>
+                        <li><strong>Infrastructure:</strong> Docker & Containerization</li>
+                        <li><strong>Data Engineering:</strong> SQL Databases (PostgreSQL, Neon) and Alembic</li>
+                    </ul>
+                    <p class="mt-3">
+                        I'm transitioning into software engineering following a decade of technical leadership in
+                        high-stakes engineering environments (including the Istanbul Airport megaproject). I now apply
+                        that same standard of operational excellence and reliability to building backend systems.
+                    </p>
+                </div>
+                <div class="d-none d-md-block col-md-6">
+                    <img src="/static/people.jpg" style="height:320px; border-radius:4px;">
+                </div>
+            </div>
+            <h2 class="text-center mt-2 mb-4">Portfolio</h2>
+            <div>
+                {% for project in projects %}
+                {% include "projectitem.html" %} {% endfor %} </div>
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/bayram-uysal/"
+                    target="_blank">Contact Me</a>
+                <p class="mt-4">Copyright 2025, Bayram Uysal</p>
+            </div>
+        </div>
+        {% include "footer.html" %}
 </body>
 
 </html>

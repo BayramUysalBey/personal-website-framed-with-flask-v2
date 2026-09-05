@@ -7,7 +7,6 @@ import os
 
 database_url = os.environ.get("DATABASE_URL")
 
-print(f"DEBUG: DATABASE_URL from env: '{database_url}'")
 
 if not database_url:
     raise ValueError(
@@ -26,6 +25,7 @@ class Project(Base):
     content = Column(Text, nullable=False)
     link = Column(String(250))
     languages = Column(String(200))
+    live_link = Column(String(250), nullable=True)
 
     def __repr__(self):
         return f"<Project(id={self.id}, name='{self.project_name}', languages='{self.languages}')>"
@@ -55,7 +55,8 @@ def load_project_from_db_by_id(project_id):
                 'project_name': project.project_name,
                 'content': project.content,
                 'link': project.link,
-                'languages': project.languages
+                'languages': project.languages,
+                'live_link': project.live_link
             }
         return None
     finally:
