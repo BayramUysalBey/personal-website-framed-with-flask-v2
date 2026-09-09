@@ -1,8 +1,7 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, Text, BigInteger
-
+from sqlalchemy import Column, String, Text, BigInteger, Integer
 import os
 
 database_url = os.environ.get("DATABASE_URL")
@@ -26,6 +25,7 @@ class Project(Base):
     link = Column(String(250))
     languages = Column(String(200))
     live_link = Column(String(250), nullable=True)
+    display_order = Column(Integer, default=99)
 
     def __repr__(self):
         return f"<Project(id={self.id}, name='{self.project_name}', languages='{self.languages}')>"
@@ -37,7 +37,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 def load_projects_from_db():
     projects = []
     with engine.connect() as conn:
-        result = conn.execute(text("SELECT * FROM projects"))
+        result = conn.execute(text("SELECT * FROM projects ORDER BY display_order, id"))
         column_names = result.keys()
         for row in result.all():
             projects.append(dict(zip(column_names, row)))
